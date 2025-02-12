@@ -61,27 +61,5 @@ async function generateTweet() {
     }
 }
 
-function scheduleNextTweet() {
-    const twoHours = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
-    const nextTweetTime = dayjs().add(2, 'hour').format('YYYY-MM-DD HH:mm:ss');
-    
-    console.log(`\n[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Scheduling next tweet for: ${nextTweetTime}`);
-    
-    setTimeout(() => {
-        generateTweet()
-            .then(() => scheduleNextTweet())
-            .catch(error => {
-                console.error(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Scheduling error:`, error);
-                scheduleNextTweet(); // Reschedule even if there's an error
-            });
-    }, twoHours);
-}
-
-// Initial tweet and start scheduling
-console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Starting tweet bot...`);
-generateTweet()
-    .then(() => scheduleNextTweet())
-    .catch(error => {
-        console.error(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Initial tweet error:`, error);
-        scheduleNextTweet(); // Start scheduling even if initial tweet fails
-    });
+// Just run the tweet generation once
+generateTweet();
