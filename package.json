@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "datejs": "^1.0.0-rc3",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2",
+    "twitter-api-v2": "^1.19.1"
+  }
+}
