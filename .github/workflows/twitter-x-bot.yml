@@ -30,4 +30,4 @@ jobs:
         echo "X_ACCESS_TOKEN_SECRET=${{ secrets.X_ACCESS_TOKEN_SECRET }}" >> .env
 
     - name: Run Twitter bot
-      run: node your-script-name.js
+      run: node bot.js
